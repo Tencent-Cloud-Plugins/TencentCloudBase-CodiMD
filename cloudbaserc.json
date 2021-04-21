@@ -1,0 +1,45 @@
+{
+  "version": "2.0",
+  "envId": "{{env.ENV_ID}}",
+  "framework": {
+    "name": "CodiMD",
+    "plugins": {
+      "client": {
+        "use": "@cloudbase/framework-plugin-container",
+        "inputs": {
+          "serviceName": "codimd",
+          "servicePath": "/",
+          "uploadType": "image",
+          "imageInfo": {
+            "imageUrl": "ccr.ccs.tencentyun.com/tcb-codimd/codimd-tcb:1.7.0"
+          },
+          "containerPort": 3000,
+          "envVariables": {
+            "DB_HOST": "{{env.DB_IP}}",
+            "DB_PORT": "{{env.DB_PORT}}",
+            "DB_NAME": "tcb-codimd",
+            "DB_USER": "root",
+            "DB_PASS": "{{env.MYSQL_PASSWORD}}",
+            "PGID": 1000,
+            "PUID": 1000,
+            "TZ": "Asia/Shanghai"
+          }
+        }
+      }
+    },
+    "requirement": {
+      "addons": [
+        {
+          "type": "CynosDB",
+          "name": "codimd",
+          "envMap": {
+            "IP": "DB_IP",
+            "PORT": "DB_PORT",
+            "USERNAME": "MYSQL_USERNAME",
+            "PASSWORD": "MYSQL_PASSWORD"
+          }
+        }
+      ]
+    }
+  }
+}
