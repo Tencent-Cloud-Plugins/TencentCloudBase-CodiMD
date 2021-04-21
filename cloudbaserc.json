@@ -20,8 +20,8 @@
             "DB_NAME": "tcb-codimd",
             "DB_USER": "root",
             "DB_PASS": "{{env.MYSQL_PASSWORD}}",
-            "PGID": 1000,
-            "PUID": 1000,
+            "PGID": "1000",
+            "PUID": "1000",
             "TZ": "Asia/Shanghai"
           }
         }
