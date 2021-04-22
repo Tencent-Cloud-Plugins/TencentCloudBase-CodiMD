@@ -14,14 +14,13 @@ CodiMD是一个写作与分享 Markdown 的最佳平台。
 
 ### 配置
 
-- `DB_HOST`: 数据库地址
-- `DB_PORT`: 数据库端口
-- `DB_NAME`: 数据库名称
-- `DB_USER`: 数据库用户名
-- `DB_PASS`: 数据库密码
-- `PGID`: 用户的 GID
-- `PUID`: 用户的 UID
-- `TZ`: 设置时区
+- `CMD_DB_URL`: 数据库连接地址
+- `CMD_DB_HOST`: 数据库地址
+- `CMD_DB_PORT`: 数据库端口
+- `CMD_DB_NAME`: 数据库名称
+- `CMD_DB_USERNAME`: 数据库用户名
+- `CMD_DB_PASSWORD`: 数据库密码
+- `CMD_USECDN`: 是否使用CDN
 
 ### 依赖
 
