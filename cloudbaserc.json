@@ -11,24 +11,30 @@
           "servicePath": "/",
           "uploadType": "image",
           "imageInfo": {
-            "imageUrl": "ccr.ccs.tencentyun.com/tcb-codimd/codimd-tcb:1.7.0"
+            "imageUrl": "ccr.ccs.tencentyun.com/tcb-codimd/codimd-tcb:2.3.2"
           },
           "containerPort": 3000,
           "envVariables": {
-            "DB_HOST": "{{env.MYSQL_DB_IP}}",
-            "DB_PORT": "{{env.MYSQL_DB_PORT}}",
-            "DB_NAME": "tcb-codimd",
-            "DB_USER": "root",
-            "DB_PASS": "{{env.MYSQL_PASSWORD}}",
-            "PGID": "1000",
-            "PUID": "1000",
-            "TZ": "Asia/Shanghai"
+            "CMD_DB_URL": "mysql://root:{{env.MYSQL_PASSWORD}}@{{env.MYSQL_DB_IP}}/tcb-codimd",
+            "CMD_DB_HOST": "{{env.MYSQL_DB_IP}}",
+            "CMD_DB_PORT": "{{env.MYSQL_DB_PORT}}",
+            "CMD_DB_NAME": "tcb-codimd",
+            "CMD_DB_USERNAME": "root",
+            "CMD_DB_PASSWORD": "{{env.MYSQL_PASSWORD}}",
+            "CMD_USECDN": "false"
+          },
+          "volumeMounts": {
+            "/home/hackmd/app/public/uploads": "codimd-cfs"
           }
         }
       }
     },
     "requirement": {
       "addons": [
+        {
+          "type": "CFS",
+          "name": "codimd-cfs"
+        },
         {
           "type": "CynosDB",
           "name": "codimd",
