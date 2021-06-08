@@ -21,8 +21,10 @@
             "CMD_DB_NAME": "tcb_codimd",
             "CMD_DB_USERNAME": "root",
             "CMD_DB_PASSWORD": "{{env.MYSQL_PASSWORD}}",
-            "CMD_USECDN": "false"
+            "CMD_USECDN": "false",
+            "TCB_NOT_SHOW_CYNOS_DB": "${Outputs.codimd.Properties.InstanceId}"
           },
+          "initialDelaySeconds": 10,
           "volumeMounts": {
             "/home/hackmd/app/public/uploads": "codimd-cfs"
           }
